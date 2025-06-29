@@ -7,7 +7,7 @@ class Room3DWebsite {
     init() {
         // Trigger page load animations
         this.triggerPageLoadAnimations();
-        
+
         this.setupAnimations();
         this.setupFormHandling();
         this.setupPricingSelection();
@@ -85,21 +85,21 @@ class Room3DWebsite {
     handleFormSubmission(form) {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-        
+
         // Show loading state
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Đang gửi...';
         submitBtn.disabled = true;
-        
+
         // Simulate form submission
         setTimeout(() => {
             // Show success message
             this.showNotification('Tin nhắn đã được gửi thành công!', 'success');
-            
+
             // Reset form
             form.reset();
-            
+
             // Reset button
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
@@ -132,7 +132,7 @@ class Room3DWebsite {
     showFieldValidation(field, isValid, message) {
         // Remove existing validation classes
         field.classList.remove('valid', 'invalid');
-        
+
         // Remove existing error message
         const existingError = field.parentNode.querySelector('.error-message');
         if (existingError) {
@@ -160,18 +160,18 @@ class Room3DWebsite {
         mobileMenuBtn.className = 'mobile-menu-btn';
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         mobileMenuBtn.style.display = 'none';
-        
+
         header.appendChild(mobileMenuBtn);
-        
+
         // Mobile menu functionality
         mobileMenuBtn.addEventListener('click', () => {
             const menu = document.querySelector('.menu');
             menu.classList.toggle('mobile-open');
-            mobileMenuBtn.innerHTML = menu.classList.contains('mobile-open') 
-                ? '<i class="fas fa-times"></i>' 
+            mobileMenuBtn.innerHTML = menu.classList.contains('mobile-open')
+                ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
         });
-        
+
         // Handle window resize
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
@@ -179,15 +179,15 @@ class Room3DWebsite {
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
-        
+
         // Show/hide mobile menu button
         const updateMobileMenu = () => {
             mobileMenuBtn.style.display = window.innerWidth <= 768 ? 'block' : 'none';
         };
-        
+
         updateMobileMenu();
         window.addEventListener('resize', updateMobileMenu);
-        
+
         // Add mobile menu styles
         const mobileStyles = document.createElement('style');
         mobileStyles.textContent = `
@@ -341,7 +341,7 @@ class Room3DWebsite {
     setupCounters() {
         // Animate statistics numbers
         const stats = document.querySelectorAll('.stat-number');
-        
+
         const animateCounter = (element, target) => {
             let current = 0;
             const increment = target / 100;
@@ -354,7 +354,7 @@ class Room3DWebsite {
                 element.textContent = Math.floor(current) + (target >= 1000 ? '+' : '');
             }, 20);
         };
-        
+
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -364,7 +364,7 @@ class Room3DWebsite {
                 }
             });
         }, { threshold: 0.5 });
-        
+
         stats.forEach(stat => statsObserver.observe(stat));
     }
 
@@ -401,7 +401,7 @@ class Room3DWebsite {
 
         // Optionally, select the 'Pro' package by default
         const proCard = document.querySelector('.pricing-card:nth-child(2)');
-        if(proCard) {
+        if (proCard) {
             proCard.classList.add('selected');
         }
     }
@@ -423,14 +423,14 @@ class Room3DWebsite {
             transition: transform 0.3s ease;
             ${type === 'success' ? 'background: #27ae60;' : 'background: #3498db;'}
         `;
-        
+
         document.body.appendChild(notification);
-        
+
         // Animate in
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
         }, 100);
-        
+
         // Remove after 3 seconds
         setTimeout(() => {
             notification.style.transform = 'translateX(100%)';
@@ -444,7 +444,7 @@ class Room3DWebsite {
 // Initialize website when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new Room3DWebsite();
-    
+
     // Add some interactive features
     const ctaButtons = document.querySelectorAll('.btn-primary');
     ctaButtons.forEach(btn => {
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const size = Math.max(rect.width, rect.height);
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
-            
+
             ripple.style.cssText = `
                 position: absolute;
                 width: ${size}px;
@@ -468,17 +468,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 animation: ripple 0.6s linear;
                 pointer-events: none;
             `;
-            
+
             btn.style.position = 'relative';
             btn.style.overflow = 'hidden';
             btn.appendChild(ripple);
-            
+
             setTimeout(() => {
                 ripple.remove();
             }, 600);
         });
     });
-    
+
     // Add ripple animation
     const rippleStyle = document.createElement('style');
     rippleStyle.textContent = `
@@ -490,14 +490,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(rippleStyle);
-    
+
     // Add loading class trigger
     window.addEventListener('load', () => {
         document.body.classList.add('loaded');
     });
 
     document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             let valid = true;
             const inputs = form.querySelectorAll('input, textarea');
             inputs.forEach(input => {
@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', onScroll);
     menuLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             // Cuộn mượt tới section
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
