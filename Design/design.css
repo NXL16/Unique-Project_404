@@ -1,0 +1,231 @@
+/* ...existing code... */
+.toolbar-dropdown {
+    position: relative;
+    /* Đảm bảo dropdown không bị che */
+    z-index: 10;
+}
+
+/* Hiện menu khi hover hoặc focus vào dropdown */
+.toolbar-dropdown:hover .dropdown-menu,
+.toolbar-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 2000;
+    animation: fadeIn 0.2s;
+}
+
+/* ...existing code... */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #181c23;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.designer-header {
+    height: 56px;
+    background: #23283a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    z-index: 10;
+}
+
+.designer-header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    gap: 12px;
+}
+
+.designer-header .logo img {
+    height: 36px;
+}
+
+.designer-header .header-actions {
+    display: flex;
+    gap: 18px;
+}
+
+.designer-header .header-actions button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.designer-header .header-actions button:hover {
+    color: #4a6bff;
+}
+
+.designer-workspace {
+    display: flex;
+    height: calc(100vh - 56px);
+}
+
+.designer-sidebar {
+    width: 260px;
+    background: #20232b;
+    color: #cdd5e0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #23283a;
+    z-index: 2;
+}
+
+.sidebar-tabs {
+    display: flex;
+    border-bottom: 1px solid #23283a;
+}
+
+.sidebar-tab {
+    flex: 1;
+    padding: 14px 0;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: #a0aec0;
+    background: none;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-tab.active,
+.sidebar-tab:hover {
+    background: #23283a;
+    color: #4a6bff;
+}
+
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px;
+}
+
+.designer-canvas-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #181c23;
+}
+
+.designer-toolbar {
+    height: 54px;
+    background: #23283a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    border-bottom: 1px solid #23283a;
+}
+
+.designer-toolbar button {
+    background: none;
+    border: none;
+    color: #cdd5e0;
+    font-size: 1.1rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.designer-toolbar button:hover,
+.designer-toolbar button.active {
+    background: #4a6bff;
+    color: #fff;
+}
+
+.canvas-container {
+    flex: 1;
+    position: relative;
+    background: #22252e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#canvas2d,
+#canvas3d {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+#canvas2d {
+    display: block;
+}
+
+#canvas3d {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.designer-properties {
+    width: 320px;
+    background: #20232b;
+    color: #cdd5e0;
+    border-left: 1px solid #23283a;
+    padding: 18px;
+    overflow-y: auto;
+    z-index: 2;
+}
+
+@media (max-width: 1200px) {
+    .designer-properties {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .designer-sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .designer-header {
+        flex-direction: column;
+        height: auto;
+        padding: 12px;
+    }
+
+    .designer-workspace {
+        flex-direction: column;
+    }
+
+    .designer-toolbar {
+        flex-wrap: wrap;
+    }
+}

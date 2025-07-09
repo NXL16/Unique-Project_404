@@ -585,3 +585,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 }); 
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Xử lý modal đăng nhập/đăng ký
+    const loginTrigger = document.getElementById('login-trigger');
+    const modalOverlay = document.querySelector('.auth-modal-overlay');
+    const closeModalBtn = document.querySelector('.close-modal-btn');
+
+    function closeModal() {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    function openModal() {
+        modalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    if (loginTrigger && modalOverlay && closeModalBtn) {
+        loginTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+        closeModalBtn.addEventListener('click', closeModal);
+        // Đóng modal khi click ra ngoài
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    }
+
+    // Xử lý đăng nhập
+    const loginForm = document.querySelector('.login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+
+            if (!email || !password) {
+                alert('Vui lòng nhập đầy đủ email và mật khẩu!');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3001/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    alert('Đăng nhập thành công! Xin chào ' + data.name);
+                    closeModal();
+
+                    // Ẩn nút đăng nhập, hiện user info
+                    document.getElementById('login-trigger').style.display = 'none';
+                    document.getElementById('user-info').style.display = 'inline-flex';
+                    document.getElementById('user-name').textContent = data.name;
+
+                    // Xử lý đăng xuất
+                    document.getElementById('logout-btn').onclick = function(e) {
+                        e.preventDefault();
+                        document.getElementById('user-info').style.display = 'none';
+                        document.getElementById('login-trigger').style.display = 'inline-block';
+                        alert('Bạn đã đăng xuất!');
+                    };
+                    return;
+                } else {
+                    alert(data.message || 'Đăng nhập thất bại!');
+                }
+            } catch (err) {
+                alert('Không thể kết nối tới server!');
+            }
+        });
+    }
+});

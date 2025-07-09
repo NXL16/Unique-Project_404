@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room3D - Thiết kế phòng 2D/3D chuyên nghiệp</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Trang chủ | Room3D Studio</title>
+    <link rel="stylesheet" href="/Index/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- SwiperJS CSS -->
@@ -16,55 +16,64 @@
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="/images/logo.png" alt="Room3D Logo" style="height: 50px;">
+            <img src="/images/logo.png" alt="Logo" style="height: 50px;">
             <span>Room3D</span>
         </div>
         <nav class="menu">
             <a href="#home" class="active">Trang chủ</a>
             <a href="#features">Tính năng</a>
             <a href="#templates">Mẫu thiết kế</a>
-            <a href="#pricing">Bảng giá</a>
+            <a href="#pricing">Lý do chọn chúng tôi</a>
         </nav>
         <div class="header-buttons">
-            <a href="#" class="btn-secondary" id="register-trigger">Đăng ký</a>
-            <a href="#" class="btn-login" id="login-trigger">Đăng nhập</a>
+            <a href="#" id="register-trigger"></a>
+            <a href="#" class="btn-login" id="login-trigger">Bắt đầu miễn phí</a>
+            <div id="user-info" style="display:none; align-items:center; gap:8px;">
+                <span id="user-name" style="font-weight:600;"></span>
+                <a href="#" id="logout-btn" class="btn-logout" style="color:#4a6bff; font-weight:500;">Đăng xuất</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Thiết kế phòng <span class="highlight">2D/3D</span><br>chuyên nghiệp</h1>
-            <p>Trải nghiệm công cụ thiết kế phòng hiện đại, trực quan và mạnh mẽ. Tạo ra không gian sống hoàn hảo chỉ
-                trong vài phút.</p>
-            <div class="cta-buttons cta-buttons-1">
-                <a href="#" class="btn-primary"><i class="fas fa-play"></i> Bắt đầu thiết kế</a>
+    <section class="hero" id="home" style="background: #10131a; position: relative; overflow: hidden;">
+        <div class="hero-pattern-bg"></div>
+        <div class="hero-content" style="padding-top: 80px; padding-bottom: 80px; max-width: 700px; margin-left: 0;">
+            <h1 style="font-size: 4rem; font-weight: 800; line-height: 1.1; letter-spacing: -2px; color: #fff; margin-bottom: 18px; text-shadow: 0 4px 24px rgba(74,107,255,0.18), 0 2px 8px rgba(0,0,0,0.18);">
+                THIẾT KẾ PHÒNG<br>
+                <span style="color: #4a6bff; display: inline;">2D/3D</span><br>
+                CHUYÊN NGHIỆP
+            </h1>
+            <div class="hero-typing" style="font-size:1.25rem;color:#4a6bff;font-weight:600;height:36px;margin-bottom:18px;">
+                <span id="typed-text"></span>
+            </div>
+            <div class="cta-buttons cta-buttons-1" style="margin-top:32px;">
+                <a href="#" class="btn-primary hero-cta"><i class="fas fa-play"></i> Bắt đầu thiết kế</a>
                 <a href="#" class="btn-tertiary">Xem demo <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">1K+</span>
+            <div class="hero-stats" style="margin-top:48px;display:flex;gap:48px;align-items:center;">
+                <div class="stat fade-in-up">
+                    <span class="stat-number" style="color:#4a6bff;font-size:2.1rem;font-weight:700;">1K+</span>
                     <span class="stat-label">Dự án đã tạo</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">500+</span>
+                <div class="stat fade-in-up">
+                    <span class="stat-number" style="color:#4a6bff;font-size:2.1rem;font-weight:700;">500+</span>
                     <span class="stat-label">Doanh nghiệp</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">4.9/5</span>
+                <div class="stat fade-in-up">
+                    <span class="stat-number" style="color:#4a6bff;font-size:2.1rem;font-weight:700;">4.9/5</span>
                     <span class="stat-label">Đánh giá</span>
                 </div>
             </div>
         </div>
-        <div class="hero-visual">
+        <div class="hero-visual" style="position:absolute;right:0;top:0;bottom:0;width:54vw;min-width:520px;display:flex;align-items:center;justify-content:center;z-index:1;">
             <spline-viewer loading-anim-type="spinner"
                 url="https://prod.spline.design/6hfQC3ZYZSrxtgot/scene.splinecode"></spline-viewer>
-            <!-- Decorative floating elements -->
-            <div class="hero-layer layer-1"></div>
-            <div class="hero-layer layer-2"></div>
-            <div class="hero-layer layer-3"></div>
-            <div class="hero-layer layer-4"></div>
-            <div class="hero-layer layer-5"></div>
+            <!-- Floating shapes -->
+            <div class="hero-float hero-float-1"></div>
+            <div class="hero-float hero-float-2"></div>
+            <div class="hero-float hero-float-3"></div>
+            <div class="hero-float hero-float-4"></div>
         </div>
     </section>
 
@@ -77,12 +86,11 @@
             </div>
 
             <!-- Feature 1 -->
-            <div class="feature-item fade-in-up">
-                <div class="feature-text">
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon"><i class="fas fa-drafting-compass"></i></div>
                     <h3>Lên kế hoạch mặt bằng 2D</h3>
-                    <p>Khởi đầu dự án của bạn bằng cách vẽ mặt bằng 2D một cách nhanh chóng và chính xác. Thêm cửa, cửa
-                        sổ, và các cấu trúc cố định chỉ với vài cú nhấp chuột.</p>
+                    <p>Khởi đầu dự án của bạn bằng cách vẽ mặt bằng 2D một cách nhanh chóng và chính xác. Thêm cửa, cửa sổ, và các cấu trúc cố định chỉ với vài cú nhấp chuột.</p>
                     <ul>
                         <li>Giao diện kéo-thả trực quan</li>
                         <li>Thư viện cấu trúc đa dạng</li>
@@ -90,18 +98,10 @@
                     </ul>
                     <a href="#" class="feature-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="feature-visual">
-                    <div class="visual-placeholder"></div>
-                </div>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="feature-item reverse fade-in-up">
-                <div class="feature-text">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon"><i class="fas fa-cube"></i></div>
                     <h3>Dựng hình và trang trí 3D</h3>
-                    <p>Chuyển đổi mặt bằng 2D thành mô hình 3D sống động chỉ bằng một cú nhấp. Thử nghiệm các loại vật
-                        liệu, màu sắc và sắp xếp nội thất từ thư viện khổng lồ của chúng tôi.</p>
+                    <p>Chuyển đổi mặt bằng 2D thành mô hình 3D sống động chỉ bằng một cú nhấp. Thử nghiệm các loại vật liệu, màu sắc và sắp xếp nội thất từ thư viện khổng lồ của chúng tôi.</p>
                     <ul>
                         <li>Chuyển đổi 2D-3D tức thì</li>
                         <li>Thư viện nội thất và vật liệu phong phú</li>
@@ -109,27 +109,16 @@
                     </ul>
                     <a href="#" class="feature-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="feature-visual">
-                    <div class="visual-placeholder"></div>
-                </div>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="feature-item fade-in-up">
-                <div class="feature-text">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon"><i class="fas fa-share-alt"></i></div>
                     <h3>Chia sẻ và xuất bản chuyên nghiệp</h3>
-                    <p>Dễ dàng chia sẻ thiết kế của bạn với khách hàng hoặc đồng nghiệp. Xuất ra hình ảnh 4K chân thực
-                        hoặc tạo một chuyến tham quan ảo tương tác.</p>
+                    <p>Dễ dàng chia sẻ thiết kế của bạn với khách hàng hoặc đồng nghiệp. Xuất ra hình ảnh 4K chân thực hoặc tạo một chuyến tham quan ảo tương tác.</p>
                     <ul>
                         <li>Xuất ảnh 4K và video tour</li>
                         <li>Chia sẻ dự án qua liên kết</li>
                         <li>Tương thích với các phần mềm kiến trúc</li>
                     </ul>
                     <a href="#" class="feature-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="feature-visual">
-                    <div class="visual-placeholder"></div>
                 </div>
             </div>
         </div>
@@ -142,30 +131,49 @@
                 <h2>Thư viện mẫu thiết kế</h2>
                 <p>Khám phá bộ sưu tập mẫu thiết kế nội thất đa dạng, từ phong cách hiện đại đến cổ điển</p>
             </div>
-            <div class="swiper gallery-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img
-                            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Modern Living Room"></div>
-                    <div class="swiper-slide"><img
-                            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Kitchen Design"></div>
-                    <div class="swiper-slide"><img
-                            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Bedroom Design"></div>
-                    <div class="swiper-slide"><img
-                            src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Office Design"></div>
-                    <div class="swiper-slide"><img
-                            src="https://images.unsplash.com/photo-1618219740975-d40978bb7378?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Bathroom Design"></div>
-                    <div class="swiper-slide"><img
-                            src="https://images.unsplash.com/photo-1618219740975-d40978bb7378?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Dining Room"></div>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=500&q=80" alt="Modern Living Room">
+                    <div class="card-overlay">
+                        <h3>Phòng khách hiện đại</h3>
+                        <a href="#" class="gallery-btn">Xem chi tiết</a>
+                    </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80" alt="Kitchen Design">
+                    <div class="card-overlay">
+                        <h3>Bếp tối giản</h3>
+                        <a href="#" class="gallery-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=500&q=80" alt="Bedroom Design">
+                    <div class="card-overlay">
+                        <h3>Phòng ngủ ấm cúng</h3>
+                        <a href="#" class="gallery-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=500&q=80" alt="Office Design">
+                    <div class="card-overlay">
+                        <h3>Văn phòng sáng tạo</h3>
+                        <a href="#" class="gallery-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1618219740975-d40978bb7378?auto=format&fit=crop&w=500&q=80" alt="Bathroom Design">
+                    <div class="card-overlay">
+                        <h3>Phòng tắm sang trọng</h3>
+                        <a href="#" class="gallery-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1618219740975-d40978bb7378?auto=format&fit=crop&w=500&q=80" alt="Dining Room">
+                    <div class="card-overlay">
+                        <h3>Phòng ăn tối giản</h3>
+                        <a href="#" class="gallery-btn">Xem chi tiết</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -174,75 +182,41 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Bảng giá dịch vụ</h2>
-                <p>Lựa chọn gói dịch vụ phù hợp với nhu cầu và ngân sách của bạn</p>
+                <h2>Vì sao chọn Room3D Studio ???</h2>
+                <p>Chúng tôi không chỉ cung cấp dịch vụ thiết kế, mà còn đồng hành cùng bạn trong suốt hành trình kiến tạo không gian sống lý tưởng.</p>
             </div>
-
-            <div class="pricing-grid">
-                <div class="pricing-card fade-in-up">
-                    <div class="pricing-header">
-                        <h3>Gói Cơ bản</h3>
-                        <div class="price">1.500.000đ</div>
-                        <p>Phù hợp cho căn hộ nhỏ</p>
-                    </div>
-                    <ul>
-                        <li>Thiết kế 2D chi tiết</li>
-                        <li>3 mẫu thiết kế khác nhau</li>
-                        <li>Bảng màu và vật liệu</li>
-                        <li>Chỉnh sửa 2 lần</li>
-                        <li>Hỗ trợ tư vấn</li>
-                    </ul>
-                    <button class="btn-primary">Chọn gói Cơ bản</button>
+            <div class="why-choose-grid">
+                <div class="why-choose-item">
+                    <i class="fas fa-user-check"></i>
+                    <h3>Đội ngũ chuyên gia giàu kinh nghiệm</h3>
+                    <p>Kiến trúc sư và nhà thiết kế tận tâm, sáng tạo, luôn lắng nghe và thấu hiểu nhu cầu của bạn.</p>
                 </div>
-
-                <div class="pricing-card fade-in-up">
-                    <div class="pricing-header">
-                        <h3>Gói Pro</h3>
-                        <div class="price">3.590.000đ</div>
-                        <p>Phù hợp cho căn hộ trung bình</p>
-                    </div>
-                    <ul>
-                        <li>Tất cả tính năng gói Cơ bản</li>
-                        <li>Thiết kế 3D render</li>
-                        <li>5 mẫu thiết kế khác nhau</li>
-                        <li>Video walkthrough</li>
-                        <li>Chỉnh sửa không giới hạn</li>
-                        <li>Hỗ trợ giám sát thi công</li>
-                    </ul>
-                    <button class="btn-primary">Chọn gói Pro</button>
+                <div class="why-choose-item">
+                    <i class="fas fa-gem"></i>
+                    <h3>Chất lượng & Uy tín</h3>
+                    <p>Cam kết chất lượng từng bản vẽ, từng sản phẩm, đảm bảo tiến độ và sự hài lòng tuyệt đối.</p>
                 </div>
-
-                <div class="pricing-card fade-in-up">
-                    <div class="pricing-header">
-                        <h3>Gói Premium</h3>
-                        <div class="price">5.990.000đ</div>
-                        <p>Phù hợp cho biệt thự</p>
-                    </div>
-                    <ul>
-                        <li>Tất cả tính năng gói Pro</li>
-                        <li>Thiết kế toàn bộ ngôi nhà</li>
-                        <li>7 mẫu thiết kế khác nhau</li>
-                        <li>VR Experience</li>
-                        <li>Quản lý dự án trọn gói</li>
-                        <li>Bảo hành thiết kế 1 năm</li>
-                    </ul>
-                    <button class="btn-primary">Chọn gói Premium</button>
+                <div class="why-choose-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Đồng hành & Hỗ trợ tận tâm</h3>
+                    <p>Luôn đồng hành, tư vấn và hỗ trợ khách hàng từ ý tưởng đến hoàn thiện, kể cả sau khi bàn giao.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section fade-in-up">
+    <section class="cta-section fade-in-up hero-cta-upgrade">
         <div class="container">
             <div class="cta-content">
-                <h2>Sẵn sàng biến ý tưởng thành hiện thực?</h2>
-                <p>Hãy bắt đầu dự án thiết kế nội thất của bạn ngay hôm nay</p>
+                <h2 class="cta-headline-gradient">Sẵn sàng biến ý tưởng thành hiện thực</h2>
+                <p class="cta-desc">Khởi tạo không gian sống mơ ước của bạn chỉ với một cú click</p>
                 <div class="cta-buttons cta-buttons-2">
-                    <a href="#" class="btn-primary">Bắt đầu dự án</a>
-                    <a href="#" class="btn-secondary">Tư vấn miễn phí</a>
+                    <a href="#" class="btn-primary btn-cta-big">Bắt đầu dự án</a>
+                    <a href="#" class="btn-secondary btn-cta-outline">Tư vấn miễn phí</a>
                 </div>
             </div>
+            <div class="cta-pattern-bg"></div>
         </div>
     </section>
 
@@ -276,7 +250,7 @@
                     <button type="submit" class="btn-primary">Đăng nhập</button>
                     <div class="divider"><span>hoặc</span></div>
                     <button type="button" class="btn-google">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+                        <svg version="1.1" xmlns="  http://www.w3.org/2000/svg" viewBox="0 0 48 48"
                             style="width: 20px; height: 20px;">
                             <g>
                                 <path fill="#EA4335"
@@ -347,49 +321,49 @@
     <!-- Footer -->
     <footer class="footer fade-in-up">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Room3D Studio</h4>
-                    <p>Chuyên gia thiết kế nội thất 2D/3D hàng đầu Việt Nam. Chúng tôi cam kết mang đến những không gian
-                        sống hoàn hảo cho mọi gia đình.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <div class="footer-main footer-flex-layout">
+                <div class="footer-brand">
+                    <div class="footer-title">Room3D Studio</div>
+                    <div class="footer-slogan">Kiến tạo không gian sống hoàn hảo</div>
+                    <div class="footer-social-block">
+                        <div class="footer-social-heading">Kết nối với chúng tôi</div>
+                        <div class="footer-social">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="footer-section">
-                    <h4>Dịch vụ</h4>
-                    <ul>
-                        <li><a href="#">Thiết kế nội thất</a></li>
-                        <li><a href="#">Thiết kế 3D</a></li>
-                        <li><a href="#">Tư vấn màu sắc</a></li>
-                        <li><a href="#">Giám sát thi công</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Hỗ trợ</h4>
-                    <ul>
-                        <li><a href="#">Hướng dẫn sử dụng</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Liên hệ</h4>
-                    <ul>
-                        <li><a href="tel:+84123456789">+84 945 678 999</a></li>
-                        <li><a href="mailto:info@room3d.vn">room3D@gmail.com</a></li>
-                        <li><a href="#">184 Lê Đại Hành, Quận 11, TP.HCM</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Dịch vụ</h4>
+                        <ul>
+                            <li><a href="#">Thiết kế nội thất</a></li>
+                            <li><a href="#">Thiết kế 3D</a></li>
+                            <li><a href="#">Tư vấn màu sắc</a></li>
+                            <li><a href="#">Giám sát thi công</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">Hướng dẫn sử dụng</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Liên hệ</h4>
+                        <ul>
+                            <li><a href="tel:+84123456789"><i class="fas fa-phone"></i> +84 945 678 999</a></li>
+                            <li><a href="mailto:info@room3d.vn"><i class="fas fa-envelope"></i> room3D@gmail.com</a></li>
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> 184 Lê Đại Hành, Quận 11, TP.HCM</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>&copy; 2025 Room3D Studio. Tất cả quyền được bảo lưu.</p>
             </div>
@@ -397,10 +371,27 @@
     </footer>
 
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.13/build/spline-viewer.js"></script>
-    <script src="index.js"></script>
+    <script src="/Index/index.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <!-- SwiperJS JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('typed-text')) {
+      new Typed('#typed-text', {
+        strings: ['Nhanh chóng', 'Trực quan', 'Cá nhân hóa', 'Chuyên nghiệp'],
+        typeSpeed: 60,
+        backSpeed: 32,
+        backDelay: 1200,
+        startDelay: 200,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+      });
+    }
+  });
+</script>
 </body>
 
 </html>
