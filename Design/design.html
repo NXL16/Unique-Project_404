@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Design</title>
+</head>
+
+<body>
+    <div class="navbar-toolbar">
+        <button class="toolbar-btn" aria-label="Tạo tài liệu mới"><i class="fa fa-file"></i><br>Tài liệu</button>
+        <button class="toolbar-btn" aria-label="Lưu tài liệu"><i class="fa fa-save"></i><br>Lưu lại</button>
+        <button class="toolbar-btn" aria-label="Hoàn tác thao tác"><i class="fa fa-undo"></i><br>Hoàn tác</button>
+        <button class="toolbar-btn" aria-label="Làm lại thao tác"><i class="fa fa-redo"></i><br>Làm lại</button>
+        <button class="toolbar-btn" aria-label="Xóa đối tượng"><i class="fa fa-trash"></i><br>Xóa</button>
+        <button class="toolbar-btn" aria-label="Công cụ thiết kế"><i class="fa fa-wrench"></i><br>Công cụ</button>
+        <button class="toolbar-btn" aria-label="Tập hợp ảnh"><i class="fa fa-images"></i><br>Tập ảnh</button>
+    </div>
+
+    <div class="sidebar-vertical">
+        <button class="sidebar-btn active" aria-label="Sơ đồ mặt bằng">
+            <i class="fa fa-cube"></i>
+            <span>Sơ đồ mặt bằng</span>
+        </button>
+        <button class="sidebar-btn" aria-label="Thư viện mô hình nội thất" data-object="chair">
+            <i class="fa fa-couch"></i>
+            <span>Mô hình</span>
+        </button>
+        <button class="sidebar-btn" aria-label="Công cụ nâng cao">
+            <i class="fa fa-layer-group"></i>
+            <span>Công cụ nâng cao</span>
+        </button>
+        <button class="sidebar-btn" aria-label="Kết xuất hình ảnh">
+            <i class="fa fa-image"></i>
+            <span>Kết xuất</span>
+        </button>
+        <button class="sidebar-btn" aria-label="Bản vẽ kỹ thuật">
+            <i class="fa fa-file-alt"></i>
+            <span>Bản vẽ</span>
+        </button>
+        <button class="sidebar-btn" aria-label="Thiết kế bằng AI">
+            <i class="fa fa-robot"></i>
+            <span>Thiết kế bằng AI</span>
+        </button>
+    </div>
+
+    <div class="category-sidebar" id="categorySidebar" style="display: none;">
+        <div class="category-title">Loại</div>
+        <div class="category-section">
+            <div class="section-title">Khởi tạo sơ đồ mặt bằng</div>
+            <div class="category-grid">
+                <button class="category-btn">Tìm kiếm mặt bằng</button>
+                <button class="category-btn">Nhập sơ đồ tầng</button>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="section-title">Sơn phòng</div>
+            <div class="category-grid">
+                <button class="category-btn">
+                    <i class="fa fa-border-all fa-2x"></i>
+                    <span>Tường thẳng (B)</span>
+                </button>
+                <button class="category-btn">
+                    <i class="fa fa-cube fa-2x"></i>
+                    <span>Tường chữ nhật (F)</span>
+                </button>
+                <button class="category-btn">
+                    <i class="fa fa-archway fa-2x"></i>
+                    <span>Tường Arc (H)</span>
+                </button>
+                <button class="category-btn">
+                    <i class="fa fa-tree fa-2x"></i>
+                    <span>Khu vực ngoài trời</span>
+                </button>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="section-title">Đặt cửa ra vào và cửa sổ</div>
+            <div class="category-grid">
+                <button class="category-btn">
+                    <img src="images/door.png" alt="Cửa">
+                    <span>Cửa</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/window.png" alt="Cửa sổ">
+                    <span>Cửa sổ</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/bay-window.png" alt="Cửa sổ lồi">
+                    <span>Cửa sổ lồi</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/arch-door.png" alt="Cửa mở và cửa sổ">
+                    <span>Cửa mở và cửa sổ</span>
+                </button>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="section-title">Thêm cấu trúc</div>
+            <div class="category-grid">
+                <button class="category-btn">
+                    <img src="images/column.png" alt="Cột">
+                    <span>Cột</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/beam.png" alt="Chùm">
+                    <span>Chùm</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/chimney.png" alt="Ống khói">
+                    <span>Ống khói</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/floor-opening.png" alt="Mở sàn">
+                    <span>Mở sàn</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/partition.png" alt="Vách ngăn">
+                    <span>Vách ngăn</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/bay-window-sill.png" alt="Bệ cửa sổ lồi">
+                    <span>Bệ cửa sổ lồi</span>
+                </button>
+                <button class="category-btn">
+                    <img src="images/wall-niche.png" alt="Khoảng lõm trên tường">
+                    <span>Khoảng lõm trên tường</span>
+                </button>
+            </div>
+        </div>
+        <button id="collapseCategorySidebar"
+            style="
+                position:absolute;
+                top:50%;
+                right:6px;
+                transform:translateY(-50%);
+                background:transparent;
+                border:none;
+                cursor:pointer;
+                font-size:12px;
+                z-index:11;"
+            aria-label="Thu gọn"><i class="fa fa-angle-left"></i></button>
+    </div>
+
+    <div class="canvas-area">
+        <div class="canvas-grid" id="canvas-grid">
+            <!-- Đối tượng kéo thả mẫu (giả lập nội thất) -->
+            <div class="draggable-object" id="object-1" data-x="0" data-y="0" style="background: #0078ff;"></div>
+        </div>
+        <button id="toggle-3d">Chuyển 2D/3D</button>
+        <div class="coordinates" id="coordinates">Tọa độ: (0, 0) | Pixel: (0, 0)</div>
+    </div>
+
+    <script src="design.js"></script>
+</body>
+
+</html>
